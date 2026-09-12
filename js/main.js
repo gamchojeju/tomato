@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".site-header");
     const menuButton = document.querySelector(".mobile-menu-button");
     const navLinks = document.querySelectorAll(".main-nav a");
+    const sections = document.querySelectorAll("main section[id]");
 
     if (!header || !menuButton) {
         return;
@@ -27,6 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
             menuButton.textContent = "메뉴";
         });
     });
+
+    /*
+     * 현재 스크롤 위치에 맞춰 메뉴 밑줄을 표시합니다.
+     * 감초식당처럼 한 페이지에서 섹션을 이동할 때
+     * 사용자가 현재 위치를 쉽게 알 수 있도록 합니다.
+     */
+    const updateActiveNav = () => {
+        let currentId = "home";
+        const headerHeight = header.offsetHeight;
+
+        sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+
+            if (sectionTop <= headerHeight + 120) {
+                currentId = section.id;
+            }
+        });
+
+        navLinks.forEach((link) => {
+            const targetId = link.getAttribute("href").replace("#", "");
+            link.classList.toggle("is-active", targetId === currentId);
+        });
+    };
+
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    updateActiveNav();
 
     document.querySelectorAll("[data-shop-link]").forEach((button) => {
         button.addEventListener("click", (event) => {
