@@ -1,0 +1,462 @@
+
+/* =========================================================
+   똘똘이 방울토마토
+   Main stylesheet
+   ========================================================= */
+
+:root {
+    --color-ink: #243027;
+    --color-green: #49664e;
+    --color-green-dark: #202a23;
+    --color-red: #d74b3e;
+    --color-cream: #f5f3eb;
+    --color-white: #ffffff;
+    --color-line: #e6e1d5;
+    --container: 1160px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--color-ink);
+    background: var(--color-white);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(var(--container), calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.site-header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(12px);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    min-height: 76px;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.brand__dot {
+    color: var(--color-red);
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.main-nav a {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.main-nav a:hover {
+    color: var(--color-red);
+}
+
+.language-switcher {
+    display: flex;
+    gap: 6px;
+    margin-left: 8px;
+}
+
+.language-switcher a {
+    padding: 5px 7px;
+    border-radius: 99px;
+    font-size: 12px;
+}
+
+.language-switcher .is-active {
+    color: var(--color-white);
+    background: var(--color-ink);
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.hero {
+    display: grid;
+    min-height: 790px;
+    padding-top: 76px;
+    align-items: end;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.08)),
+        url("../images/IMG_4822.JPG") center / cover;
+}
+
+.hero__content {
+    max-width: 760px;
+    padding: 110px 0 92px;
+    color: var(--color-white);
+}
+
+.eyebrow {
+    color: var(--color-red);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.hero .eyebrow {
+    color: var(--color-white);
+    font-size: 13px;
+}
+
+.hero__title {
+    margin: 16px 0;
+    font-size: clamp(44px, 7vw, 82px);
+    line-height: 1.08;
+    letter-spacing: -0.055em;
+}
+
+.hero__description {
+    max-width: 650px;
+    font-size: 19px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 21px;
+    border-radius: 999px;
+    background: var(--color-white);
+    font-weight: 800;
+}
+
+.button--red {
+    color: var(--color-white);
+    background: var(--color-red);
+}
+
+/* =========================================================
+   Sections
+   ========================================================= */
+
+.section {
+    padding: 110px 0;
+}
+
+.section--green {
+    color: var(--color-white);
+    background: var(--color-green);
+}
+
+.section--cream {
+    background: var(--color-cream);
+}
+
+.section__title {
+    margin: 10px 0 18px;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.18;
+    letter-spacing: -0.045em;
+}
+
+.section__intro {
+    max-width: 690px;
+    color: #5e675f;
+}
+
+.section--green .section__intro {
+    color: #e4ebe4;
+}
+
+/* =========================================================
+   About
+   ========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-card {
+    padding: 45px;
+    border-radius: 30px;
+    background: var(--color-cream);
+}
+
+.about-card__number {
+    color: var(--color-red);
+    font-size: 64px;
+    font-weight: 950;
+    line-height: 1;
+}
+
+/* =========================================================
+   Farm steps
+   ========================================================= */
+
+.farm-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 45px;
+}
+
+.farm-step {
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.farm-step__number {
+    color: #dfe9df;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   Tomato
+   ========================================================= */
+
+.tomato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.tomato-grid__image {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+/* =========================================================
+   Gallery
+   ========================================================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 42px;
+}
+
+.gallery__item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--color-cream);
+}
+
+.gallery__item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.gallery__item:hover img {
+    transform: scale(1.04);
+}
+
+/* =========================================================
+   Shop
+   ========================================================= */
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.shop-card {
+    padding: 35px;
+    border: 1px solid var(--color-line);
+    border-radius: 24px;
+    background: var(--color-white);
+}
+
+.shop-card__title {
+    margin: 0 0 5px;
+    font-size: 25px;
+}
+
+.shop-card__description {
+    color: #687168;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+    padding: 70px 0 30px;
+    color: #dce4dc;
+    background: var(--color-green-dark);
+}
+
+.site-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+}
+
+.site-footer__brand {
+    color: var(--color-white);
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 14px;
+}
+
+.site-footer__small {
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: #aeb9b0;
+    font-size: 12px;
+}
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+.mobile-menu-button {
+    display: none;
+    margin-left: auto;
+    padding: 8px;
+    border: 0;
+    color: var(--color-ink);
+    background: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: min(100% - 28px, var(--container));
+    }
+
+    .site-header__inner {
+        min-height: 66px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .language-switcher {
+        margin-left: auto;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .site-header.menu-open .main-nav {
+        position: absolute;
+        top: 66px;
+        right: 14px;
+        left: 14px;
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 10px;
+        border-radius: 18px;
+        background: var(--color-white);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .site-header.menu-open .main-nav a {
+        padding: 12px;
+    }
+
+    .hero {
+        min-height: 700px;
+        padding-top: 66px;
+    }
+
+    .hero__content {
+        padding: 90px 0 65px;
+    }
+
+    .section {
+        padding: 78px 0;
+    }
+
+    .about-grid,
+    .tomato-grid,
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .farm-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tomato-grid__image {
+        height: 390px;
+    }
+
+    .site-footer__grid {
+        grid-template-columns: 1fr;
+    }
+}
