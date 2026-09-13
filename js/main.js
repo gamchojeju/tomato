@@ -1,8 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{const header=document.querySelector("[data-fixed-header]"),nav=[...document.querySelectorAll(".main-nav a")],mobile=document.querySelector(".mobile-menu-button"),sections=[...document.querySelectorAll("main section[id]")];
-const headerState=()=>header.classList.toggle("is-scrolled",scrollY>20);
-const active=()=>{let y=scrollY+130,current=sections[0]?.id;sections.forEach(s=>{if(y>=s.offsetTop)current=s.id});nav.forEach(a=>a.classList.toggle("is-active",a.getAttribute("href")==="#"+current))};
-mobile?.addEventListener("click",()=>{const open=header.classList.toggle("menu-open");mobile.setAttribute("aria-expanded",open)});
-document.querySelectorAll(".mobile-menu a").forEach(a=>a.addEventListener("click",()=>{header.classList.remove("menu-open");mobile?.setAttribute("aria-expanded","false")}));
-document.querySelectorAll("[data-shop-link]").forEach(a=>a.addEventListener("click",e=>{if(a.getAttribute("href")==="#"){e.preventDefault();alert("판매 링크가 확정되면 이 버튼에 쿠팡/스마트스토어 주소를 연결합니다.")}}));
-document.querySelectorAll("[data-lang]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll("[data-lang]").forEach(x=>x.classList.remove("is-active"));a.classList.add("is-active");const n={ko:"한국어",zh:"中文",en:"English",ja:"日本語"};alert(`${n[a.dataset.lang]} 페이지는 다음 단계에서 연결할 예정입니다.`)}));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));headerState();active();addEventListener("scroll",()=>{headerState();active()},{passive:true})});
