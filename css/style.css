@@ -225,3 +225,57 @@ button{font:inherit}
   }
   .shop-card strong{font-size:20px;}
 }
+
+
+/* =========================================================
+   GALLERY — FINAL SIZE / SPACING FIX
+   This override intentionally comes last so it wins over V8 rules.
+========================================================= */
+
+.gallery-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.gallery-item{
+  aspect-ratio:1/1.05;
+}
+
+.gallery-item:nth-child(3n){
+  aspect-ratio:1/1.18;
+}
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(5){
+  aspect-ratio:1/1.05;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* 태블릿 */
+@media(max-width:900px){
+  .gallery-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+}
+
+/* 모바일 — 2열을 유지하면서 사진 크기와 간격을 안정적으로 */
+@media(max-width:640px){
+  .gallery-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .gallery-item,
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3n),
+  .gallery-item:nth-child(5){
+    aspect-ratio:1/1;
+  }
+}
